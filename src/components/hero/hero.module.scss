@@ -30,10 +30,14 @@
 }
 
 .main {
-  margin: 100px 0;
+  margin: 62px 0 100px;
+
+  @include breakpoint(tablet) {
+    margin: 100px 0;
+  }
 
   @include breakpoint(mobile) {
-    margin: 50px 0;
+    margin: 70px 0;
   }
 }
 
