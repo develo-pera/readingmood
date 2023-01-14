@@ -8,7 +8,7 @@ const Hero = () => (
       <div className={styles.main}>
         <h1 className={styles.title}>Tell us what you&apos;re <span className={styles.mode}>reading</span> and we&apos;ll give you some songs.</h1>
         <input className={styles.input} type="text" placeholder="Enter book title"/>
-        <Button className={styles.button}>Get songs</Button>
+        <Button primary className={styles.button}>Get songs</Button>
       </div>
       <div />
     </div>

@@ -3,7 +3,7 @@
 .hero {
   width: 100%;
   padding: 0 20px;
-  background-color: #F1EDE9;
+  background-color: var(--bg-light);
   display: flex;
   justify-content: flex-end;
 }
@@ -18,7 +18,8 @@
   justify-content: space-between;
 
   @include breakpoint(tablet) {
-    max-width: 100%;
+    max-width: 510px;
+    margin: 0 auto;
     min-height: initial;
   }
 }
@@ -30,15 +31,24 @@
 
 .main {
   margin: 100px 0;
+
+  @include breakpoint(mobile) {
+    margin: 50px 0;
+  }
 }
 
 .title {
   font-size: 3rem;
   margin-bottom: 50px;
+
+  @include breakpoint(mobile) {
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
 }
 
 .mode {
-  color: #FF8EC6;
+  color: var(--primary-color);
 }
 
 .input {

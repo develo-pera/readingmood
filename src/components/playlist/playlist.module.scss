@@ -1,4 +1,32 @@
+@import "../../styles/breakpoints";
+
 .playlist {
-  background-color: #191D20;
+  background-color: var(--bg-dark);
   color: #fff;
+  @include breakpoint(tablet) {
+    padding: 100px 20px;
+  }
+
+  @include breakpoint(mobile) {
+    padding: 50px 20px;
+  }
+}
+
+.content {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  @include breakpoint(tablet) {
+    min-height: initial;
+    display: flex;
+    max-width: 510px;
+    margin: 0 auto;
+    padding: 0;
+  }
 }
