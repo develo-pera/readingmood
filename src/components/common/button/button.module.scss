@@ -1,0 +1,55 @@
+@import "../../../styles/breakpoints";
+
+.button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  border-radius: 4px;
+  padding: 15px 35px;
+  font-size: 16px;
+  background-color: #232323;
+  color: white;
+  line-height: 1.4em;
+  outline: none;
+  border: none;
+
+  &:hover {
+    opacity: .98;
+  }
+
+  @include breakpoint(mobile) {
+    width: 100%;
+  }
+}
+
+.buttonPrimary {
+  background-color: #000;
+
+  &:hover {
+    opacity: .9;
+  }
+}
+
+.buttonGhost {
+  background: none;
+  color: #a2a2ac;
+  padding: 0;
+
+  svg {
+    path {
+      fill: #a2a2ac;
+    }
+  }
+
+  &:hover {
+    background: none;
+    color: white;
+
+    svg {
+      path {
+        fill: white;
+      }
+    }
+  }
+}

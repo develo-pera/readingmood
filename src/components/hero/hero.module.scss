@@ -12,8 +12,42 @@
   flex-grow: 1;
   width: 100%;
   max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
 
   @include breakpoint(tablet) {
     max-width: 100%;
+    min-height: initial;
   }
+}
+
+.logo {
+  margin-top: 20px;
+  width: 130px;
+}
+
+.main {
+  margin: 100px 0;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 50px;
+}
+
+.mode {
+  color: #FF8EC6;
+}
+
+.input {
+  max-width: 510px;
+  margin-bottom: 14px;
+}
+
+.button {
+  width: 100%;
+  max-width: 510px;
+  text-transform: uppercase;
 }

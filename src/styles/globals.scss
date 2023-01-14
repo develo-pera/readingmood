@@ -12,9 +12,25 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
 }
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+input,
+textarea {
+  width: 100%;
+  line-height: 1.4em;
+  outline: none;
+  border: 1px solid black;
+  padding: 15px;
+  border-radius: 4px;
+  font-family: "Inter Regular", "Inter", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 400;
+  font-size: 16px;
+  background: transparent;
+  box-shadow: inset 0 0 0 1px transparent;
 }
 
 /*@media (prefers-color-scheme: dark) {*/
