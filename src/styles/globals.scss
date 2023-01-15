@@ -33,6 +33,11 @@ textarea {
   box-shadow: inset 0 0 0 1px transparent;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .ReadingmoodNotification {
   .Toastify__toast {
     background-color: #000000;
