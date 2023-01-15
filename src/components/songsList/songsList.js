@@ -10,6 +10,8 @@ const SongsList = ({songs, book}) => (
             <div>
               <p className={styles.title}>{song.songTitle}</p>
               <p className={styles.artist}>{song.artist}</p>
+              <p className={styles.why}>Why this song:</p>
+              <p className={styles.whyText}>{song.description}</p>
             </div>
           </div>
         ))
