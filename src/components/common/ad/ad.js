@@ -6,7 +6,7 @@ const Ad = ({image, url}) => (
       <img src={image} alt="Advertisement image" />
     </a>
     <p className={styles.disclaimer}>* Paid ad</p>
-    <p className={styles.callToAction}>Want to place your ad here? <a href="#">Contact us</a></p>
+    <p className={styles.callToAction}>Want to place your ad here? <a href="https://xntkpyvzukn.typeform.com/to/S73CJkZu" target="_blank" rel="noreferrer noopener">Contact us</a></p>
   </div>
 );
 
