@@ -21,7 +21,7 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={`${window.location.hostname}/og-image.jpg`} />
+        <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_APP_URL}/og-image.jpg`} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
