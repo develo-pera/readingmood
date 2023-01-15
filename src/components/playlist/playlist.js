@@ -23,7 +23,7 @@ const ads = [
 ]
 
 const Playlist = () => {
-  const { songs } = useReadingmoodStore();
+  const { searchValue, songs } = useReadingmoodStore();
   const getRandomAd = () => {
     const randomAdIndex = Math.floor(Math.random() * ads.length)
     return (
@@ -39,7 +39,7 @@ const Playlist = () => {
         {
           !songs.length ?
             getRandomAd() :
-            <SongsList songs={songs} />
+            <SongsList songs={songs} book={searchValue} />
         }
       </div>
     </div>

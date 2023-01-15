@@ -39,7 +39,7 @@ const MODES = {
 }
 
 const Hero = () => {
-  const { setSongs } = useReadingmoodStore();
+  const { setSearchValue, setSongs } = useReadingmoodStore();
   const [mode, setMode] = useState(MODES.READING);
   const [inputValue, setInputValue] = useState("");
 
@@ -57,6 +57,8 @@ const Hero = () => {
       alert("Not available yet");
       return;
     }
+
+    setSearchValue(inputValue);
     setSongs(SONGS_MOCK);
   }
 
