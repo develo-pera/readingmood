@@ -1,6 +1,7 @@
 import styles from "./playlist.module.scss";
 import Ad from "@/components/common/ad/ad";
 import { useReadingmoodStore } from "@/lib/store";
+import SongsList from "@/components/songsList/songsList";
 
 const ads = [
   {
@@ -38,7 +39,7 @@ const Playlist = () => {
         {
           !songs.length ?
             getRandomAd() :
-            <p>Pjesme</p>
+            <SongsList songs={songs} />
         }
       </div>
     </div>
