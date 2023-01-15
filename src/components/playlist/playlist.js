@@ -1,5 +1,6 @@
 import styles from "./playlist.module.scss";
 import Ad from "@/components/common/ad/ad";
+import { useReadingmoodStore } from "@/lib/store";
 
 const ads = [
   {
@@ -21,6 +22,7 @@ const ads = [
 ]
 
 const Playlist = () => {
+  const { songs } = useReadingmoodStore();
   const getRandomAd = () => {
     const randomAdIndex = Math.floor(Math.random() * ads.length)
     return (
@@ -28,10 +30,16 @@ const Playlist = () => {
     )
   };
 
+  console.log(songs);
+
   return (
     <div className={styles.playlist}>
       <div className={styles.content}>
-        {getRandomAd()}
+        {
+          !songs.length ?
+            getRandomAd() :
+            <p>Pjesme</p>
+        }
       </div>
     </div>
   );
