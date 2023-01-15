@@ -22,7 +22,7 @@ const generateAction = async (req, res) => {
     return res.status(200).json({existing: existingBook, output: ""});
   }
 
-  const songsPrompt = `Recommend me five songs which aligns with the themes of the book "${req.body.userInput}", after you finish listing songs write short explanation for each song from the list why it align with the theme of the book. Return it as an json object with array named list of objects with three fields songTitle, artist and description. Filed names should be wrapped with double quote. Field songTitle should contain only title, not who's the artist.`;
+  const songsPrompt = `Recommend me five songs which aligns with the themes of the book "${req.body.userInput}", after you finish listing songs write short explanation for each song from the list why it align with the theme of the book. Recommended songs preferably won't be official soundtracks. Return it as an json object with array named list of objects with three fields songTitle, artist and description. Filed names should be wrapped with double quote. Field songTitle should contain only title, not who's the artist.`;
 
   const baseCompletion = await openai.createCompletion({
     model: "text-davinci-003",
