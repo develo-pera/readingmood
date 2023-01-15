@@ -6,7 +6,7 @@ import Playlist from "@/components/playlist/playlist";
 
 export default function Home() {
   const title = "Readingmood";
-  const description = "Tell us what you're reading and we'll give you list of songs that goes along with the theme of the book.";
+  const description = "Tell us what you're reading and we'll give you list of songs that goes along with the theme of the book and vice-versa.";
   return (
     <>
       <Head>
