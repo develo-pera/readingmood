@@ -10,7 +10,7 @@
 
 .songList {
   display: grid;
-  gap: 10px
+  gap: 7px
 }
 
 .song {
@@ -23,10 +23,6 @@
     color: black;
     background-color: var(--primary-color);
   }
-}
-
-.title {
-  margin-bottom: 3px;
 }
 
 .artist {
