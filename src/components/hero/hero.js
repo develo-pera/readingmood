@@ -28,7 +28,8 @@ const Hero = () => {
     }
 
     if (mode === MODES.LISTENING) {
-      alert("Not available yet");
+      toast("This feature is not available yet");
+      toast.clearWaitingQueue();
       return;
     }
 
