@@ -5,34 +5,6 @@ import Button from "@/components/common/button/Button";
 import { useReadingmoodStore } from "@/lib/store";
 import { toast } from "react-toastify";
 
-const SONGS_MOCK = [
-  {
-    title: "Song title",
-    artist: "Artist",
-    description: "Lorem ipsum je bas super tekst jer ne mozras da lupetas nego ono, dobijes ga out of the box"
-  },
-  {
-    title: "Song title",
-    artist: "Artist",
-    description: "Lorem ipsum je bas super tekst jer ne mozras da lupetas nego ono, dobijes ga out of the box"
-  },
-  {
-    title: "Song title",
-    artist: "Artist",
-    description: "Lorem ipsum je bas super tekst jer ne mozras da lupetas nego ono, dobijes ga out of the box"
-  },
-  {
-    title: "Song title",
-    artist: "Artist",
-    description: "Lorem ipsum je bas super tekst jer ne mozras da lupetas nego ono, dobijes ga out of the box"
-  },
-  {
-    title: "Song title",
-    artist: "Artist",
-    description: "Lorem ipsum je bas super tekst jer ne mozras da lupetas nego ono, dobijes ga out of the box"
-  }
-]
-
 const MODES = {
   READING: "reading",
   LISTENING: "listening",
@@ -42,10 +14,12 @@ const Hero = () => {
   const { setSearchValue, setSongs } = useReadingmoodStore();
   const [mode, setMode] = useState(MODES.READING);
   const [inputValue, setInputValue] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const changeMode = () => mode === MODES.READING ? setMode(MODES.LISTENING) : setMode(MODES.READING);
   const handleInputChange = (e) => setInputValue(e.target.value);
-  const onButtonClick = () => {
+
+  const onButtonClick = async () => {
     if (!inputValue) {
       setSongs([]);
       toast.error("Come on, give us a book title! Input can not be empty.");
@@ -58,8 +32,39 @@ const Hero = () => {
       return;
     }
 
-    setSearchValue(inputValue);
-    setSongs(SONGS_MOCK);
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('/api/get-songs', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userInput: inputValue }),
+      });
+
+      const data = await response.json();
+      const { existing, output } = data;
+
+      if (!existing) {
+        setSearchValue("");
+        setSongs([]);
+        setIsLoading(false);
+        toast.error("We are not familiar with that book so we can't recommend any songs. :(");
+        toast.clearWaitingQueue();
+        return;
+      }
+
+      const songs = JSON.parse(output.text).list;
+
+      setSearchValue(inputValue);
+      setSongs(songs);
+      setIsLoading(false);
+    } catch (e) {
+      setIsLoading(false);
+      toast.error("Something went wrong. Please try again");
+      toast.clearWaitingQueue();
+    }
   }
 
   return (
@@ -78,8 +83,13 @@ const Hero = () => {
             primary
             className={styles.button}
             onClick={onButtonClick}
+            disabled={isLoading}
           >
-            Get {mode === MODES.READING ? "songs" : "books"}
+            {
+              isLoading ?
+                "Thinking... 🤔" :
+                `Get ${mode === MODES.READING ? "songs" : "books"}`
+            }
           </Button>
         </div>
         <div />

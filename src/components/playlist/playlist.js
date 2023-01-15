@@ -31,8 +31,6 @@ const Playlist = () => {
     )
   };
 
-  console.log(songs);
-
   return (
     <div className={styles.playlist}>
       <div className={styles.content}>
