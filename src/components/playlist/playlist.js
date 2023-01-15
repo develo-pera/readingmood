@@ -12,12 +12,21 @@ const ads = [
   }
 ]
 
-const Playlist = () => (
-  <div className={styles.playlist}>
-    <div className={styles.content}>
-      <Ad image={ads[0].img} url={ads[0].url} />
+const Playlist = () => {
+  const getRandomAd = () => {
+    const randomAdIndex = Math.floor(Math.random() * ads.length)
+    return (
+      <Ad image={ads[randomAdIndex].img} url={ads[randomAdIndex].url} />
+    )
+  };
+
+  return (
+    <div className={styles.playlist}>
+      <div className={styles.content}>
+        {getRandomAd()}
+      </div>
     </div>
-  </div>
-);
+  );
+}
 
 export default Playlist;
