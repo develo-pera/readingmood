@@ -9,7 +9,15 @@ const ads = [
   {
     img: "/ads/renfter-ad-lenders.jpg",
     url: "https://renfter.com/nft-owners",
-  }
+  },
+  {
+    img: "/ads/eth-bgd-ad.jpg",
+    url: "https://belgradeblockchainweek.com/#ETH-Belgrade",
+  },
+  {
+    img: "/ads/nft-bgd-ad.jpg",
+    url: "https://belgradeblockchainweek.com/#NFT-Belgrade",
+  },
 ]
 
 const Playlist = () => {
