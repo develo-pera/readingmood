@@ -45,6 +45,7 @@
   font-size: 3rem;
   margin-bottom: 50px;
   position: relative;
+  max-width: 510px;
 
   @include breakpoint(mobile) {
     font-size: 2rem;
