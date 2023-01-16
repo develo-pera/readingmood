@@ -19,6 +19,29 @@ const Hero = () => {
   const changeMode = () => mode === MODES.READING ? setMode(MODES.LISTENING) : setMode(MODES.READING);
   const handleInputChange = (e) => setInputValue(e.target.value);
 
+  const getToken = async () => {
+    const client_id = '744f16b2998b4d30aea18eea70f582af';
+    const client_secret = 'e408e700ddd7408bb73f4a2d3d7a1fa7';
+
+
+    const response = await fetch("https://accounts.spotify.com/api/token" + "", {
+      method: "POST",
+      headers: {
+        'Authorization': 'Basic ' + btoa(new Buffer(client_id + ':' + client_secret)),
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: "grant_type=client_credentials",
+    });
+    const data = await response.json();
+    console.log("DATA", data);
+
+    // request.post(authOptions, function(error, response, body) {
+    //   if (!error && response.statusCode === 200) {
+    //     var token = body.access_token;
+    //   }
+    // });
+  }
+
   const onButtonClick = async () => {
     if (!inputValue) {
       setSongs([]);
@@ -92,6 +115,7 @@ const Hero = () => {
                 `Get ${mode === MODES.READING ? "songs" : "books"}`
             }
           </Button>
+          <button onClick={getToken}>Get token</button>
         </div>
         <div />
       </div>

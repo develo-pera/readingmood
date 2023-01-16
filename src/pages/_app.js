@@ -1,8 +1,16 @@
 import Script from "next/script";
+import LogRocket from "logrocket";
+import setupLogRocketReact from "logrocket-react";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "@/styles/main.scss";
+
+if (typeof window !== "undefined") {
+  LogRocket.init('w7yj3j/readingmood');
+  // plugins should also only be initialized when in the browser
+  setupLogRocketReact(LogRocket);
+}
 
 export default function ReadingmoodApp({ Component, pageProps }) {
   return (
