@@ -43,15 +43,15 @@ const Hero = () => {
   }
 
   const onButtonClick = async () => {
-    if (!inputValue) {
-      setSongs([]);
-      toast.error("Come on, give us a book title! Input can not be empty.");
+    if (mode === MODES.LISTENING) {
+      toast("This feature is not available yet");
       toast.clearWaitingQueue();
       return;
     }
-
-    if (mode === MODES.LISTENING) {
-      toast("This feature is not available yet");
+    
+    if (!inputValue) {
+      setSongs([]);
+      toast.error("Come on, give us a book title! Input can not be empty.");
       toast.clearWaitingQueue();
       return;
     }
