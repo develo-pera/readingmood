@@ -16,10 +16,9 @@ const generateAction = async (req, res) => {
   });
   const bookInfoPromptOutput = firstCompletion.data.choices.pop();
   const familiarBook = JSON.parse(bookInfoPromptOutput.text).familiar;
-  const { existingBook } = JSON.parse(`{"existingBook": ${familiarBook}}`);
 
-  if (!existingBook) {
-    return res.status(200).json({existing: existingBook, output: ""});
+  if (!familiarBook) {
+    return res.status(200).json({existing: familiarBook, output: ""});
   }
 
   const songsPrompt = `Recommend me five songs which aligns with the themes of the book "${req.body.userInput}", after you finish listing songs write short explanation for each song from the list why it align with the theme of the book. Recommended songs preferably won't be official soundtracks. Return it as an json object with array named list of objects with three fields songTitle, artist and description. Filed names should be wrapped with double quote. Field songTitle should contain only title, not who's the artist.`;
@@ -32,7 +31,7 @@ const generateAction = async (req, res) => {
   });
 
   const promptOutput = baseCompletion.data.choices.pop();
-  res.status(200).json({existing: existingBook, output: promptOutput});
+  res.status(200).json({existing: familiarBook, output: promptOutput});
 };
 
 export default generateAction;

@@ -14,11 +14,7 @@ const ads = [
   },
   {
     img: "/ads/eth-bgd-ad.jpg",
-    url: "https://belgradeblockchainweek.com/#ETH-Belgrade",
-  },
-  {
-    img: "/ads/nft-bgd-ad.jpg",
-    url: "https://belgradeblockchainweek.com/#NFT-Belgrade",
+    url: "https://belgradeblockchainweek.com/#eth-belgrade",
   },
 ]
 
